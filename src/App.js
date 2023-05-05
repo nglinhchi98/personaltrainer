@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import { AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-material.css';
+import 'dayjs/locale/en-gb';
+import CustomerList from './components/CustomerList';
+import TrainingList from './components/TrainingList';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+
 
 function App() {
+
+  const [value, setValue] = useState('one');
+
+  const handleChange = (event, value) => {
+    setValue(value);}
+    
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tabs value={value} onChange={handleChange}>
+            <Tab value="one" label="CUSTOMER" />
+            <Tab value="two" label="TRAINING" />
+      </Tabs>
+      {value === 'one' && (<div><CustomerList /></div>)}
+      {value === 'two' && (<div><TrainingList /></div>)}
     </div>
   );
 }
