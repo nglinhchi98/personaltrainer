@@ -5,11 +5,10 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { color } from '@mui/system';
 
-export default function AddCustomer({ addCustomer }) {
+export default function AddCustomer(props) {
     const [open, setOpen] = React.useState(false);
-    const [customer, setCustomers] = React.useState({
+    const [customer, setCustomer] = React.useState({
         firstname: '',
         lastname: '',
         streetaddress: '',
@@ -27,14 +26,18 @@ export default function AddCustomer({ addCustomer }) {
         setOpen(false);
     };
 
-    const handleSave = () => {
-        addCustomer(customer)
-        setOpen(false)
+    const saveCustomer = () => {
+        props.addCustomer(customer);
+        handleClose();
     };
 
+      
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
+            <Button 
+            style={{margin:13.5,padding:10, float: 'left', fontSize:'0.8rem'}} 
+            variant="contained" 
+            onClick={handleClickOpen}>
                 Add Customer
             </Button>
             <Dialog open={open} onClose={handleClose}>
@@ -42,7 +45,7 @@ export default function AddCustomer({ addCustomer }) {
                 <DialogContent>
                     <TextField
                         value={customer.firstname}
-                        onChange={e => setCustomers({...customer, firstname: e.target.value})}
+                        onChange={e => setCustomer({...customer, firstname: e.target.value})}
                         margin="dense"
                         label="First Name"
                         fullWidth
@@ -51,7 +54,7 @@ export default function AddCustomer({ addCustomer }) {
 
                     <TextField
                         value={customer.lastname}
-                        onChange={e => setCustomers({...customer, lastname: e.target.value})}
+                        onChange={e => setCustomer({...customer, lastname: e.target.value})}
                         margin="dense"
                         label="Last Name"
                         fullWidth
@@ -60,7 +63,7 @@ export default function AddCustomer({ addCustomer }) {
 
                     <TextField
                         value={customer.streetaddress}
-                        onChange={e => setCustomers({...customer, streetaddress: e.target.value})}
+                        onChange={e => setCustomer({...customer, streetaddress: e.target.value})}
                         margin="dense"
                         label="Street Address"
                         fullWidth
@@ -69,7 +72,7 @@ export default function AddCustomer({ addCustomer }) {
 
                     <TextField 
                         value={customer.postcode}
-                        onChange={e => setCustomers({...customer, firstname: e.target.value})}
+                        onChange={e => setCustomer({...customer, postcode: e.target.value})}
                         margin="dense"
                         label="Post Code"
                         fullWidth
@@ -78,16 +81,25 @@ export default function AddCustomer({ addCustomer }) {
 
                     <TextField 
                         value={customer.city}
-                        onChange={e => setCustomers({...customer, firstname: e.target.value})}
+                        onChange={e => setCustomer({...customer, city: e.target.value})}
                         margin="dense"
                         label="City"
                         fullWidth
                         variant="standard"
                     />
 
+                    <TextField 
+                        value={customer.email}
+                        onChange={e => setCustomer({...customer, email: e.target.value})}
+                        margin="dense"
+                        label="Email"
+                        fullWidth
+                        variant="standard"
+                    />
+
                     <TextField
                         value={customer.phone}
-                        onChange={e => setCustomers({...customer, firstname: e.target.value})}
+                        onChange={e => setCustomer({...customer, phone: e.target.value})}
                         margin="dense"
                         label="Phone"
                         fullWidth
@@ -95,11 +107,13 @@ export default function AddCustomer({ addCustomer }) {
                     />
 
                 </DialogContent>
+
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleSave}>Save</Button>
+                    <Button onClick={saveCustomer}>Save</Button>
                 </DialogActions>
+
             </Dialog>
         </div>
-    )
+    );
 }
