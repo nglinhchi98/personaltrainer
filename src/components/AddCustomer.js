@@ -35,7 +35,7 @@ export default function AddCustomer(props) {
     return (
         <div>
             <Button 
-            style={{margin:13.5,padding:10, float: 'left', fontSize:'0.8rem'}} 
+            style={{margin:13.5, marginRight: 3, marginLeft: 30,padding:8, fontSize:'0.8rem'}} 
             variant="contained" 
             onClick={handleClickOpen}>
                 Add Customer

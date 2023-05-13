@@ -19,7 +19,7 @@ ModuleRegistry.registerModules([ClientSideRowModelModule, CsvExportModule]);
 
 function CustomerList() {
     const [customers, setCustomers] = useState([]);
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState();
 
     useEffect(() => {
         getCustomers()}, [])
@@ -36,13 +36,14 @@ function CustomerList() {
         {cellRenderer: params => 
             <AddTraining 
             saveTraining={saveTraining} 
-            params= {params.data} />
-            ,width: 80, 
+            params= {params.data} />,
+            width: 80, 
             filter: false,
             sortable: false
         },
         {cellRenderer: params => 
-            <EditCustomer updateCustomer = {updateCustomer}
+            <EditCustomer 
+            updateCustomer = {updateCustomer}
             params= {params.data} />
             ,width: 80, 
             filter: false,
@@ -128,17 +129,18 @@ function CustomerList() {
       }
 
       //adding new training 
-    const saveTraining = (training) => {
-        fetch('https://traineeapp.azurewebsites.net/api/trainings', {
+      const saveTraining=(training)=>{
+        fetch('https://traineeapp.azurewebsites.net/api/trainings',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            }, 
-            body: JSON.stringify(training)
-        })
-        .then(res => getCustomers())
-        .catch(err => console.error(err))
-      }
+            },
+            body:JSON.stringify(training)
+        }
+        )
+        .then(res=> getCustomers())
+        .catch(err=>console.error(err))
+    }
       
       //download as csv file 
     function clickToExport() {
@@ -148,20 +150,22 @@ function CustomerList() {
 
     return (
         <>
+            <h2 style={{marginTop: 30}}>Customer List</h2>
+            <div style={{ display: 'flex'}}>
                 <AddCustomer addCustomer={addCustomer} />
                 <Button 
                     variant="contained" 
                     color='primary'
                     style={{
                         margin:13.5,
-                        padding:10,
-                        float:'right',
+                        marginLeft: 0,
+                        padding:8,
                         fontSize: '12px'}}
                     onClick= {() => clickToExport()}
                     >
                     <GetAppIcon />CSV
                 </Button>
-
+            </div>
             <div
                 className='ag-theme-material'
                 style={{ width: '90%', height: 600, margin: 'auto'}}>

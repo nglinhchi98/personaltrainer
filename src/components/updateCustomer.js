@@ -20,6 +20,8 @@ export default function EditCustomer(props) {
     phone:''
 })
 
+  
+
   const handleClickOpen = () => {
     setCustomer({
       firstname:props.params.firstname, 
@@ -137,6 +139,7 @@ export default function EditCustomer(props) {
         </DialogActions>
       </Dialog>
       
+
     </div>
   );
 }

@@ -71,7 +71,8 @@ function TrainingList() {
 
 
     return (
-        <>
+        <> 
+            <h2 style={{ marginTop: 30}}>Training List</h2>
             <div
                 className='ag-theme-material'
                 style={{ width: '80%', height: 600, margin: 'auto'}}>
