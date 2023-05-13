@@ -26,7 +26,6 @@
     "csv-writer": "^1.6.0",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.7",
-    "gh-pages": "^5.0.0",
     "install": "^0.13.0",
     "mdi-react": "^9.2.0",
     "moment-timezone": "^0.5.43",
@@ -67,5 +66,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
