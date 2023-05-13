@@ -1,5 +1,6 @@
 {
   "name": "personaltrainer",
+  "homepage": "https://nglinhchi65.github.io/personaltrainer/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,7 +41,6 @@
     "recharts": "^2.6.2",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://nglinhchi65.github.io/personaltrainer/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
