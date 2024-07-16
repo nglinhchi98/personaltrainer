@@ -19,7 +19,7 @@ import {
       const[data,setData]=useState([]);
   
       const getData = () => {
-          fetch('https://traineeapp.azurewebsites.net/gettrainings')
+          fetch('https://customerrestservice-personaltraining.rahtiapp.fi/api/trainings')
             .then((response) => {
               if (response.ok) {
                 return response.json();
