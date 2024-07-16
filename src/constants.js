@@ -1,1 +1,1 @@
-export const API_URL = 'https://traineeapp.azurewebsites.net/';
+export const API_URL = 'https://customerrestservice-personaltraining.rahtiapp.fi/api';
