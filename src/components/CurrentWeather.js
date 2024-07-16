@@ -21,7 +21,7 @@ export default function CurrentWeather(){
 
           return(
             <div> 
-            <p><strong>Temperature: </strong>{temperature} Celcius</p>
+            <p><strong>Temperature: </strong>{temperature} celcius</p>
             <p><strong>Weather: </strong>{weather}</p>
             <img src= {imgUrl} alt='weather-sign'/>
             
