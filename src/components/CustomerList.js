@@ -98,7 +98,7 @@ function CustomerList() {
       
     //add new customer
     const addCustomer = (customer) => {
-        fetch('https://traineeapp.azurewebsites.net/api/customers', {
+        fetch('https://customerrestservice-personaltraining.rahtiapp.fi/api/customers', {
             method:'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(customer)
@@ -117,7 +117,7 @@ function CustomerList() {
                     customerID = url[i] + customerID;
                 } else {break;}
             }
-        fetch('https://traineeapp.azurewebsites.net/api/customers/' + customerID, {
+        fetch('https://customerrestservice-personaltraining.rahtiapp.fi/api/customers/' + customerID, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -130,7 +130,7 @@ function CustomerList() {
 
       //adding new training 
       const saveTraining=(training)=>{
-        fetch('https://traineeapp.azurewebsites.net/api/trainings',{
+        fetch('https://customerrestservice-personaltraining.rahtiapp.fi/api/trainings',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
