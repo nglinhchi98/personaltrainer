@@ -45,7 +45,7 @@ export default function AddTraining(props) {
         break;
       }
     }
-    setCustomerLink('http://traineeapp.azurewebsites.net/api/customers/' + customerID);
+    setCustomerLink('https://customerrestservice-personaltraining.rahtiapp.fi/api/customers' + customerID);
   };
 
   const handleClose = () => {
