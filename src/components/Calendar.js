@@ -10,7 +10,7 @@ function CalendarPage() {
   const [trainings, setTrainings] = useState([]);
 
   useEffect(() => {
-    fetch('https://traineeapp.azurewebsites.net/gettrainings', {})
+    fetch('https://customerrestservice-personaltraining.rahtiapp.fi/api/trainings', {})
       .then((response) => {
         if(response.ok) {
           return response.json(); 
