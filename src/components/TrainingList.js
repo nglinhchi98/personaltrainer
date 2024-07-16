@@ -39,7 +39,7 @@ function TrainingList() {
     //get all trainings
 
     const getTraining = () => {
-        fetch('https://traineeapp.azurewebsites.net/gettrainings')
+        fetch('https://customerrestservice-personaltraining.rahtiapp.fi/api/trainings')
         .then(response => {
             if(response.ok)
                 return response.json();
@@ -54,7 +54,7 @@ function TrainingList() {
         // delete training
     const deleteTraining = (params) => {
         if (window.confirm('Are you sure to delete this training?')) {
-            fetch('http://traineeapp.azurewebsites.net/api/trainings/' + params.data.id, { method: 'DELETE'})
+            fetch('https://customerrestservice-personaltraining.rahtiapp.fi/api/trainings/' + params.data.id, { method: 'DELETE'})
             .then(response => {
                 if (response.ok) {
                     setOpen(true);
